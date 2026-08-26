@@ -23,7 +23,7 @@ resource "aws_subnet" "multi_tier" {
 
   vpc_id            = aws_vpc.main.id
   availability_zone = data.aws_availability_zones.available.names[each.value.az_index]
-  cidr_block        = cidrsubnet(aws_vpc.main.cidr_block, 4, each.value.net_num)
+  cidr_block        = cidrsubnet(aws_vpc.main.cidr_block, var.subnet_newbits, each.value.net_num)
   ipv6_cidr_block   = cidrsubnet(aws_vpc.main.ipv6_cidr_block, 8, each.value.net_num)
 
   assign_ipv6_address_on_creation = true

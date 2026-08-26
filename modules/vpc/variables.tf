@@ -32,6 +32,13 @@ variable "subnets" {
   }
 }
 
+variable "subnet_newbits" {
+  description = "Number of additional bits to add to the VPC prefix. 2 = 4 subnets, 3 = 8 subnets, 4 = 16 subnets."
+  type = number
+  default = 4
+}
+
+
 variable "vpc_name" {
   description = "The name of the VPC"
   type        = string
